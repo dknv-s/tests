@@ -1,0 +1,82 @@
+<template>
+  <div class="test-descriptions">
+    <header class="title">
+      Описание
+    </header>
+    <div class="about-test">
+      <div class="description">
+        {{ selectedTest.description }}
+      </div>
+      <div class="buttons">
+        <router-link class="button-description" :to="{name:'testQuestions', params:{test:selectedTest}}">начать</router-link>
+        <router-link class="button-description" to="/">отмена</router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<script>
+
+export default {
+  name: "TestDescription",
+  props: {
+    selectedTest: {},
+  },
+}
+</script>
+
+<style scoped lang="scss">
+.test-descriptions {
+  width: 100%;
+
+  .title {
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    color: gray;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--line, darkgray);
+    }
+  }
+
+  .about-test {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .description {
+    margin-bottom: 1rem;
+  }
+  .buttons {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .button-description {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    width: 5rem;
+    text-transform: capitalize;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: white;
+      background-color: var(--button-hover-color, red);
+      border-color: red;
+    }
+  }
+}
+</style>

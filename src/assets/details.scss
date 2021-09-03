@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0px;
+  font-weight: 550;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+.button-description {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 5rem;
+  text-transform: capitalize;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: white;
+    background-color: var(--button-hover-color, red);
+    border-color: red;
+  }
+}
+
+//@font-face {
+//  font-family: Rubik;
+//  src: url(fonts/Rubik/Rubik-Light.ttf);
+//}

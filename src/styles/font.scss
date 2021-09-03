@@ -1,0 +1,39 @@
+//@font-face{
+//
+//  font-family: 'Rubik';
+//
+//  src: url('../fonts/Rubik.eot');
+//
+//  src: url('../fonts/Rubik.eot?iefix') format('eot'),
+//
+//  url('../fonts/Rubik.woff') format('woff'),
+//
+//  url('../fonts/Rubik.ttf') format('truetype'),
+//
+//  url('../fonts/Rubik.svg#webfont') format('svg');
+//
+//  font-weight: normal;
+//
+//  font-style: normal;
+//
+//}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/Rubik/static/Rubik-Italic.ttf') format('truetype'),
+}
+
+@font-face {
+  font-family: 'Rubik';
+  //font-style: normal;
+  //font-weight: 400;
+  //font-display: swap;
+  src: url('../fonts/Nunito/Nunito-Regular.ttf') format('truetype'),
+}
+//@font-face {
+//  font-family: Rubik; /* Имя шрифта */
+//  src: url(fonts/Rubik/static/Rubik-Bold.ttf); /* Путь к файлу со шрифтом */
+//}

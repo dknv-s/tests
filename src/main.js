@@ -3,6 +3,11 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import '@/fontawesome/css/all.css'
+// @import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+import "@/assets/main.scss";
+import '@/styles/font.scss';
+
 
 Vue.config.productionTip = false
 
