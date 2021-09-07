@@ -1,5 +1,6 @@
 <template>
   <div class="exit-modal" @click="closeModal">
+    <div class="background"></div>
     <div class="exit-modal-container" @click.stop>
       <div class="exit-modal-content">
         <span class="modal-header">Вы уверены, что хотите выйти?</span>
@@ -51,13 +52,25 @@ export default {
   height: 100%;
   z-index: 10;
 
+  .background {
+    background-color: black;
+    opacity: 70%;
+    width: 100%;
+    height: 100%;
+  }
+
   .exit-modal-container {
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    //width: 100%;
+    //height: 90%;
   position: fixed;
   top: 30%;
   right: 0;
   left: 0;
   width: auto;
-  margin: 16px;
+  //margin: 16px;
   opacity: 100%;
 }
 
@@ -68,14 +81,16 @@ export default {
     justify-content: center;
     width: 100%;
     max-width: 500px;
-    margin: 1.75rem auto;
+    margin: 0 auto;
     padding: 20px 30px;
     border-radius: 5px;
     color: #000;
     background-color: #fff;
     //transform: translate(0, 0);
     //transition: all 0.3s ease;
-    //box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 20;
+    opacity: 100%;
   }
 
   .modal-header {

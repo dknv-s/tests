@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import TestDescription from '../views/TestDescription.vue'
 import TestQuestions from '../views/TestQuestions.vue'
 import TestResult from '../views/TestResult.vue'
+import MobileMenu from '../views/MobileMenu.vue'
 
 Vue.use(VueRouter)
 
@@ -14,7 +15,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/test-description',
+    path: '/test-description/:testId',
     name: 'testDescription',
     component: TestDescription,
     props: true,
@@ -29,6 +30,12 @@ const routes = [
     path: '/test-result',
     name: 'testResult',
     component: TestResult,
+    props: true,
+  },
+  {
+    path: '/mobile-menu',
+    name: 'mobileMenu',
+    component: MobileMenu,
     props: true,
   },
 ]

@@ -3,13 +3,25 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Rubik", "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0px;
+  //letter-spacing: 0px;
   font-weight: 550;
 }
 
 body, html {
   height: 100%;
   width: 100%;
+}
+
+.line {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--line-color, darkgray);
+  }
 }
 
 .button-description {
@@ -30,7 +42,76 @@ body, html {
   }
 }
 
-//@font-face {
-//  font-family: Rubik;
-//  src: url(fonts/Rubik/Rubik-Light.ttf);
-//}
+.row {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+  @extend .line;
+
+  .button-exit {
+    cursor: pointer;
+    text-transform: capitalize;
+    color: var(--test-result-color, #acabab);
+  }
+
+  .header-right-block {
+    display: flex;
+    flex-flow: row nowrap;
+    color: var(--test-result-color, #acabab);
+
+    .space {
+      padding: 0 0.5rem;
+      color: black;
+    }
+
+    .button-cancel-answers {
+      cursor: pointer;
+    }
+  }
+}
+@media screen and (max-width: 710px) {
+  .row {
+    padding: 0.5rem;
+    flex-direction: column;
+    font-size: 0.85rem;
+
+    .button-exit {
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5rem;
+    }
+  }
+}
+@media screen and (min-width: 960px) {
+  .row {
+    position: relative;
+    @extend .line;
+
+    .button-exit {
+      cursor: pointer;
+      position: absolute;
+      left: 1rem;
+      text-transform: capitalize;
+      color: var(--test-result-color, #acabab);
+    }
+
+    .header-right-block {
+      display: flex;
+      flex-flow: row nowrap;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      color: var(--test-result-color, #acabab);
+
+      .space {
+        padding: 0 0.5rem;
+        color: black;
+      }
+
+      .button-cancel-answers {
+        cursor: pointer;
+      }
+    }
+  }
+}

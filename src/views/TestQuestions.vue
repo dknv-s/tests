@@ -5,7 +5,7 @@
       <div class="button-exit" @click="toggleModal">выход</div>
       <div class="title">{{ selectedTest.title }}</div>
       <div class="header-right-block">
-        <span>Сбросить все ответы</span> <span class="space">|</span>
+        <span class="button-cancel-answers" @click="cancelUserAnswer">Сбросить все ответы</span> <span class="space">|</span>
         <span> {{numberAnsweredQuestions}} / {{totalQuestions}}</span> <span class="space">|</span>
         <span>{{timeOutput.hours}}:{{timeOutput.minutes}}:{{timeOutput.seconds}}</span>
       </div>
@@ -98,7 +98,6 @@ export default {
       this.isShowModal = !this.isShowModal;
     },
     countUpTimer() {
-      // if (this.time.seconds <= 59) {
         setTimeout(() => {
           this.time.seconds += 1
 
@@ -113,7 +112,13 @@ export default {
           this.time.minutes = 0
         }
       // }
-    }
+    },
+    cancelUserAnswer() {
+      let i = 0;
+      for (i; i < this.test.questions.length; i++) {
+        this.test.questions[i].userAnswer = 'Не ответили'
+      }
+    },
   }
 }
 </script>
@@ -125,45 +130,10 @@ export default {
   .title {
     display: flex;
     justify-content: center;
-    width: 100%;
+    //width: 100%;
     color: black;
     font-weight: 600;
-  }
-
-  .row {
-    position: relative;
-    padding: 1rem;
-
-    .button-exit {
-      cursor: pointer;
-      position: absolute;
-      left: 1rem;
-      text-transform: capitalize;
-      color: var(--test-result-color, #acabab)
-    }
-    .header-right-block {
-      display: flex;
-      flex-flow: row nowrap;
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-      color: var(--test-result-color, #acabab);
-
-      .space {
-        padding: 0 0.5rem;
-        color: black;
-      }
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--line-color, darkgray);
-    }
+    flex-grow: 1;
   }
 
   .container-tests {
@@ -178,7 +148,6 @@ export default {
     .question {
       padding: 1rem 0;
     }
-
   }
   .answer {
     background-color: var(--menu-color);
@@ -211,39 +180,17 @@ export default {
     }
   }
 }
+
 @media screen and (max-width: 1200px){
   .answer {
     justify-content: flex-start;
     align-content: flex-start;
   }
 }
-//.test2-questions {
-  //position: relative;
 
-  //.block-button {
-  //  display: flex;
-  //  width: 100%;
-  //  position: fixed;
-  //  bottom: 0;
-  //  padding: 1rem;
-  //
-  //  &:before {
-  //    content: '';
-  //    position: absolute;
-  //    left: 0;
-  //    top: 0;
-  //    width: 100%;
-  //    height: 1px;
-  //    background: var(--line, darkgray);
-  //  }
-  //}
-  //.button-finished {
-  //  border: 1px solid red;
-  //  text-transform: capitalize;
-  //  padding: 0.6rem 1.5rem;
-  //  border-radius: 3px;
-  //  color: var(--button-hover-color);
-  //  cursor: pointer;
-  //}
-//}
+@media screen and (max-width: 710px) {
+  .container-tests {
+    height: 85%;
+  }
+}
 </style>

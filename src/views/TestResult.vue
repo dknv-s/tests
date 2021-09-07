@@ -5,7 +5,7 @@
       <div class="button-exit" @click="toggleModal">выход</div>
       <div class="title">{{ selectedTest.title }}</div>
       <div class="header-right-block">
-        <span>Сбросить все ответы</span> <span class="space">|</span>
+        <span  class="button-cancel-answers" @click="cancelUserAnswer">Сбросить все ответы</span> <span class="space">|</span>
         <span> {{numberCorrectAnswer}} / {{totalQuestions}}</span> <span class="space">|</span>
         <span>{{timeSpent.hours}}:{{timeSpent.minutes}}:{{timeSpent.seconds}}</span>
       </div>
@@ -98,7 +98,7 @@ export default {
     },
     openTestAgain(selectedTest) {
       this.cancelUserAnswer()
-      this.$router.push({name:'testQuestions', params:{selectedTest:selectedTest}})
+      this.$router.push({name:'testQuestions', params:{test: selectedTest}})
     },
     toggleModal() {
       this.isShowModal = !this.isShowModal;
@@ -110,50 +110,56 @@ export default {
 <style lang="scss">
 .test-result {
   width: 100%;
+
   .title {
     display: flex;
     justify-content: center;
-    width: 100%;
+    //width: 100%;
+    flex-grow: 1;
     color: black;
     font-weight: 600;
   }
 
-  .row {
-    position: relative;
-    padding: 1rem;
+  //.row {
+  //  position: relative;
+  //  padding: 1rem;
+  //
+  //  .button-exit {
+  //    cursor: pointer;
+  //    position: absolute;
+  //    left: 1rem;
+  //    text-transform: capitalize;
+  //    color: var(--test-result-color, #acabab)
+  //  }
+  //
+  //  &:before {
+  //    content: '';
+  //    position: absolute;
+  //    left: 0;
+  //    bottom: 0;
+  //    width: 100%;
+  //    height: 1px;
+  //    background: var(--line-color, darkgray);
+  //  }
+  //}
 
-    .button-exit {
-      cursor: pointer;
-      position: absolute;
-      left: 1rem;
-      text-transform: capitalize;
-      color: var(--test-result-color, #acabab)
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--line-color, darkgray);
-    }
-  }
-
-  .header-right-block {
-    display: flex;
-    flex-flow: row nowrap;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    color: var(--test-result-color, #acabab);
-
-    .space {
-      padding: 0 0.5rem;
-      color: black;
-    }
-  }
+  //.header-right-block {
+  //  display: flex;
+  //  flex-flow: row nowrap;
+  //  position: absolute;
+  //  right: 1rem;
+  //  top: 1rem;
+  //  color: var(--test-result-color, #acabab);
+  //
+  //  .space {
+  //    padding: 0 0.5rem;
+  //    color: black;
+  //  }
+  //
+  //  .button-cancel-answers {
+  //    cursor: pointer;
+  //  }
+  //}
 
   .container-results {
       overflow-y: auto;
@@ -180,5 +186,7 @@ export default {
     color: var(--test-result-color, #acabab);
   }
 }
+@media screen and (max-width: 864px) {
 
+}
 </style>

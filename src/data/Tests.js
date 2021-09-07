@@ -148,7 +148,7 @@ export const tests = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: 'Test',
     description: 'Описание теста Test',
     questions: [
@@ -222,7 +222,7 @@ export const tests = [
     ]
   },
   {
-    id: 2,
+    id: 4,
     title: 'Название теста',
     description: 'Описание теста Название теста',
     questions: [
