@@ -5,9 +5,9 @@
       <div class="exit-modal-content">
         <span class="modal-header">Вы уверены, что хотите выйти?</span>
         <span class="modal-body">Все результаты будут сброшены</span>
-        <div>
-          <button class="button-description" @click="exitTest">выход</button>
-          <button class="button-description" @click="closeModal">отмена</button>
+        <div class="buttons-modal">
+          <button class="button-modal" @click="exitTest">выход</button>
+          <button class="button-modal" @click="closeModal">отмена</button>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@ export default {
   z-index: 10;
 
   .background {
-    background-color: black;
+    background-color: gray;
     opacity: 70%;
     width: 100%;
     height: 100%;
@@ -80,7 +80,7 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px 30px;
     border-radius: 5px;
@@ -98,8 +98,41 @@ export default {
   }
 
   .modal-body {
-    font-size: 0.8rem;
-    margin-bottom: 2rem;
+    font-size: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .buttons-modal {
+    width: 75%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  .button-modal {
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    font-size: 1rem;
+    text-transform: capitalize;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid red;
+    border-radius: 3px;
+    text-decoration: none;
+    color: red;
+    background-color: white;
+
+    &:hover {
+      color: white;
+      background-color: var(--button-hover-color, red);
+      border-color: red;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .button-modal {
+    margin-bottom: 1rem;
   }
 }
 </style>

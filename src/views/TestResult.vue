@@ -120,47 +120,6 @@ export default {
     font-weight: 600;
   }
 
-  //.row {
-  //  position: relative;
-  //  padding: 1rem;
-  //
-  //  .button-exit {
-  //    cursor: pointer;
-  //    position: absolute;
-  //    left: 1rem;
-  //    text-transform: capitalize;
-  //    color: var(--test-result-color, #acabab)
-  //  }
-  //
-  //  &:before {
-  //    content: '';
-  //    position: absolute;
-  //    left: 0;
-  //    bottom: 0;
-  //    width: 100%;
-  //    height: 1px;
-  //    background: var(--line-color, darkgray);
-  //  }
-  //}
-
-  //.header-right-block {
-  //  display: flex;
-  //  flex-flow: row nowrap;
-  //  position: absolute;
-  //  right: 1rem;
-  //  top: 1rem;
-  //  color: var(--test-result-color, #acabab);
-  //
-  //  .space {
-  //    padding: 0 0.5rem;
-  //    color: black;
-  //  }
-  //
-  //  .button-cancel-answers {
-  //    cursor: pointer;
-  //  }
-  //}
-
   .container-results {
       overflow-y: auto;
       width: 100%;
@@ -186,7 +145,16 @@ export default {
     color: var(--test-result-color, #acabab);
   }
 }
-@media screen and (max-width: 864px) {
+@media screen and (max-width: 550px) {
+  .test-result {
+    .number-correct-answer {
+      margin-bottom: 0.5rem;
+    }
+    
+    .container-results {
+      height: 85%;
+    }
+  }
 
 }
 </style>

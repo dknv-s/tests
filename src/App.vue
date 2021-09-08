@@ -173,7 +173,6 @@ export default {
     left: 0;
     height: 100%;
     color: black;
-    //transition-delay:2s;
     transition: 0.3s ease-out 0.3s;
     background-color: var(--menu-color, lightgray);
     transform: translateX(-100%);
@@ -202,6 +201,8 @@ export default {
 
   .mobile-menu-list {
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding-left: 0.5rem;
     flex-direction: column;
     width: 100%;
@@ -210,8 +211,6 @@ export default {
 
   .menu-item {
     display: flex;
-    //align-items: center;
-    //justify-content: center;
     cursor: pointer;
   }
 
@@ -229,7 +228,7 @@ export default {
   }
 
   .fa-circle {
-    align-items: center;
+    //align-items: center;
     height: 100%;
     font-size: 0.6rem;
     margin-right: 0.5rem;
@@ -245,6 +244,7 @@ export default {
   .content-menu-active {
     @extend .content;
     margin-left: 200px;
+    transition: 0.3s ease-out;
   }
 
   .content-menu-hidden {

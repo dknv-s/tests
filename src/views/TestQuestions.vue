@@ -14,7 +14,7 @@
       <div class="container-tests">
         <div class="questions" v-for="(question,index) in selectedTest.questions" :key="`question-${index}`">
           <div class="question">{{ question.id }}.{{ question.value }}</div>
-          <div class="answer">
+          <div class="answers">
             <div class="row-answer" v-for="(answer,index) in question.answers" :key="`answer-${index}`">
               <input class="point-answer" type="radio" :value="answer.value" v-model="question.userAnswer">
               <label>{{ answer.value }}</label>
@@ -149,12 +149,10 @@ export default {
       padding: 1rem 0;
     }
   }
-  .answer {
+  .answers {
     background-color: var(--menu-color);
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    flex-grow: 1;
 
     .row-answer {
       padding: 0.9rem 2rem;
@@ -181,7 +179,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (min-width: 710px) and (max-width: 1200px){
   .answer {
     justify-content: flex-start;
     align-content: flex-start;
@@ -189,8 +187,11 @@ export default {
 }
 
 @media screen and (max-width: 710px) {
-  .container-tests {
-    height: 85%;
+  .tests-questions {
+    .container-tests {
+      height: 85%;
+    }
   }
 }
+
 </style>
