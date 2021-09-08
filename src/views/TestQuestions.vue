@@ -188,6 +188,7 @@ export default {
 
 @media screen and (max-width: 710px) {
   .tests-questions {
+    
     .container-tests {
       height: 85%;
     }

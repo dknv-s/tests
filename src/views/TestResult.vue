@@ -150,7 +150,7 @@ export default {
     .number-correct-answer {
       margin-bottom: 0.5rem;
     }
-    
+
     .container-results {
       height: 85%;
     }
