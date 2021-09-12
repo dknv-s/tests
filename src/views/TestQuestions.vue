@@ -141,7 +141,7 @@ $border-color: #e30303;
   .container-tests {
     overflow-y: auto;
     width: 100%;
-    height: 87%;
+    height: calc(100% - 114px)
   }
 
   .questions {
@@ -189,14 +189,4 @@ $border-color: #e30303;
     align-content: flex-start;
   }
 }
-
-@media screen and (max-width: 710px) {
-  .tests-questions {
-
-    .container-tests {
-      height: 85%;
-    }
-  }
-}
-
 </style>

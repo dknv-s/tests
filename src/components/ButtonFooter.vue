@@ -24,6 +24,7 @@ $line-color: #ced6e0;
   bottom: 0;
   padding: 0.5rem;
   background-color: white;
+  height: 60px;
 
 &:before {
    content: '';

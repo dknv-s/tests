@@ -23,7 +23,7 @@
         </result>
       </div>
     </section>
-    <button-footer class="footer" :textButton="textButton" @click.native="openTestAgain(selectedTest)"></button-footer>
+    <button-footer :textButton="textButton" @click.native="openTestAgain(selectedTest)"></button-footer>
   </div>
 </template>
 
@@ -125,7 +125,7 @@ $line-color: #ced6e0;
   .container-results {
       overflow-y: auto;
       width: 100%;
-      height: 85%;
+      height: calc(100% - 114px);
   }
   .text-test-finish {
     display: flex;
@@ -148,21 +148,12 @@ $line-color: #ced6e0;
     color: $test-result-color;
     color: var(--test-result-color, #acabab);
   }
-
-  .footer {
-    height: 60px;
-  }
 }
 @media screen and (max-width: 550px) {
   .test-result {
     .number-correct-answer {
       margin-bottom: 0.5rem;
     }
-
-    .container-results {
-      height: 80%;
-    }
   }
-
 }
 </style>
