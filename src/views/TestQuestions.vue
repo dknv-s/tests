@@ -10,19 +10,17 @@
         <span>{{timeOutput.hours}}:{{timeOutput.minutes}}:{{timeOutput.seconds}}</span>
       </div>
     </header>
-<!--    <div class="block-questions">-->
-      <div class="container-tests">
-        <div class="questions" v-for="(question,index) in selectedTest.questions" :key="`question-${index}`">
-          <div class="question">{{ question.id }}.{{ question.value }}</div>
-          <div class="answers">
-            <div class="row-answer" v-for="(answer,index) in question.answers" :key="`answer-${index}`">
-              <input class="point-answer" type="radio" :value="answer.value" v-model="question.userAnswer">
-              <label>{{ answer.value }}</label>
-            </div>
+    <section class="container-tests">
+      <div class="questions" v-for="(question,index) in selectedTest.questions" :key="`question-${index}`">
+        <div class="question">{{ question.id }}.{{ question.value }}</div>
+        <div class="answers">
+          <div class="row-answer" v-for="(answer,index) in question.answers" :key="`answer-${index}`">
+            <input class="point-answer" type="radio" :value="answer.value" v-model="question.userAnswer">
+            <label>{{ answer.value }}</label>
           </div>
         </div>
       </div>
-<!--    </div>-->
+    </section>
     <button-footer :textButton="textButton" @click.native="testFinished(selectedTest)"></button-footer>
   </div>
 </template>
@@ -124,6 +122,10 @@ export default {
 </script>
 
 <style lang="scss">
+$menu-color: #f1f2f6;
+$button-hover-color: #fc0404;
+$border-color: #e30303;
+
 .tests-questions {
   width: 100%;
 
@@ -150,6 +152,7 @@ export default {
     }
   }
   .answers {
+    background-color: $menu-color;
     background-color: var(--menu-color);
     display: flex;
     flex-flow: row wrap;
@@ -170,9 +173,10 @@ export default {
       margin-right: 0.3rem;
       position: relative;
 
-
       &:checked {
+        border: $border-color;
         border: 2px solid var(--border-color);
+        background-color: $button-hover-color;
         background-color: var(--button-hover-color);
       }
     }
@@ -188,7 +192,7 @@ export default {
 
 @media screen and (max-width: 710px) {
   .tests-questions {
-    
+
     .container-tests {
       height: 85%;
     }

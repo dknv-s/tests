@@ -3,7 +3,6 @@
     <div id="slideActiveMenu" class="menu">
       <div class="header-menu">
         <i v-show="!isMobileView" class="fas fa-arrow-left menu-icon" @click="closeMenu"></i>
-        <i v-show="!isMobileView" v-if="!menuVisible" class="fas fa-bars open-icon" @click="openMenu"></i>
         <i v-show="isMobileView" v-if="!menuVisible" class="fas fa-bars menu-icon" @click="changeMenuVisible"></i>
         <i v-show="isMobileView" v-if="menuVisible" class="fas fa-times menu-icon" @click="changeMenuVisible"></i>
         <span class="menu-title">тесты</span>
@@ -56,9 +55,11 @@ export default {
       this.menuVisible = !this.menuVisible;
     },
     closeMenu() {
-      // let nav = document.querySelector('.menu');
-      slideActiveMenu.classList.toggle("menu-slide-out");
-      slideHiddenMenu.classList.toggle("menu-hidden-slide-in");
+      var nav = document.querySelector('.menu');
+      nav.classList.toggle("menu-slide-out");
+      nav.classList.toggle("menu-hidden-slide-in");
+      // slideActiveMenu.classList.toggle("menu-slide-out");
+      // slideHiddenMenu.classList.toggle("menu-hidden-slide-in");
       this.changeMenuVisible()
       // document.getElementById("slideActiveMenu").style.width = "0";
       // document.getElementById("slideHiddenMenu").style.width = "100%";
@@ -99,11 +100,6 @@ export default {
 }
 </script>
 <style lang="scss">
-$button-hover-color: #fc0404;
-$line-color: #ced6e0;
-$menu-color: #f1f2f6;
-$icons-color: #a4b0be;
-
 .line {
   &:before {
     content: '';
@@ -112,7 +108,6 @@ $icons-color: #a4b0be;
     bottom: 0;
     width: 100%;
     height: 1px;
-    background: $line-color;
     background: var(--line-color, darkgray);
   }
 }
@@ -129,7 +124,8 @@ $icons-color: #a4b0be;
     position: fixed;
     height: 100%;
     overflow: auto;
-    background-color: $menu-color;
+    //display: flex;
+    //flex-direction: column;
     background-color: var(--menu-color, lightgray);
     top: 0;
     left: 0;
@@ -145,28 +141,16 @@ $icons-color: #a4b0be;
       position: relative;
       @extend .line;
     }
-
-    .open-icon {
-      text-align: left;
-      cursor: pointer;
-      position: absolute;
-      color: $icons-color;
-      color: var(--icons-color, gray);
-      left: 10.5rem;
-      top: 1.1rem;
-      z-index: 20;
-    }
   }
 
   .menu-slide-out {
-    transform: translateX(-75%);
+    transform: translateX(-100%);
   }
 
   .menu-icon {
     text-align: left;
     cursor: pointer;
     position: absolute;
-    color: $icons-color;
     color: var(--icons-color, gray);
     left: 1rem;
     top: 1.1rem;
@@ -192,7 +176,6 @@ $icons-color: #a4b0be;
     height: 100%;
     color: black;
     transition: 0.3s ease-out 0.3s;
-    background-color: $menu-color;
     background-color: var(--menu-color, lightgray);
     transform: translateX(-100%);
 
@@ -200,7 +183,6 @@ $icons-color: #a4b0be;
       text-align: left;
       cursor: pointer;
       position: absolute;
-      color: $icons-color;
       color: var(--icons-color, gray);
       left: 1rem;
       top: 1.1rem;
@@ -242,7 +224,6 @@ $icons-color: #a4b0be;
     border-radius: 5px;
 
     &:hover {
-      background-color: $button-hover-color;
       background-color: var(--button-hover-color, red);
       color: white;
     }

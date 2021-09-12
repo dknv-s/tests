@@ -23,12 +23,14 @@ export default {
 
 
 <style lang="scss">
+$line-color: #ced6e0;
+
 .result {
   position: relative;
   padding-top: 0.5rem;
   padding-bottom: 1.5rem;
   padding-left: 1rem;
-  border-bottom: 2px dashed var(--line-color, darkgray);
+  border-bottom: 2px dashed $line-color;
   line-height: 2;
 
 

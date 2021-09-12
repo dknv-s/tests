@@ -44,6 +44,8 @@ export default {
 </script>
 
 <style lang="scss">
+$button-hover-color: #fc0404;
+
 .exit-modal {
   position: fixed;
   top: 0;
@@ -54,7 +56,7 @@ export default {
 
   .background {
     background-color: gray;
-    opacity: 70%;
+    opacity: 0.7;
     width: 100%;
     height: 100%;
   }
@@ -124,6 +126,7 @@ export default {
 
     &:hover {
       color: white;
+      background-color: $button-hover-color;
       background-color: var(--button-hover-color, red);
       border-color: red;
     }

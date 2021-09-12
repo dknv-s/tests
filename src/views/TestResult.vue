@@ -10,7 +10,7 @@
         <span>{{timeSpent.hours}}:{{timeSpent.minutes}}:{{timeSpent.seconds}}</span>
       </div>
     </header>
-    <div class="container-results">
+    <section class="container-results">
       <span class="text-test-finish">Тест завершён</span>
       <span class="number-correct-answer">Вы ответили на {{numberCorrectAnswer}} из {{totalQuestions}} вопросов.</span>
       <span class="text-your-answers">Ваши ответы</span>
@@ -22,8 +22,8 @@
             :userAnswer="question.userAnswer">
         </result>
       </div>
-    </div>
-    <button-footer :textButton="textButton" @click.native="openTestAgain(selectedTest)"></button-footer>
+    </section>
+    <button-footer class="footer" :textButton="textButton" @click.native="openTestAgain(selectedTest)"></button-footer>
   </div>
 </template>
 
@@ -108,13 +108,15 @@ export default {
 </script>
 
 <style lang="scss">
+$test-result-color: #acabab;
+$line-color: #ced6e0;
+
 .test-result {
   width: 100%;
 
   .title {
     display: flex;
     justify-content: center;
-    //width: 100%;
     flex-grow: 1;
     color: black;
     font-weight: 600;
@@ -123,7 +125,7 @@ export default {
   .container-results {
       overflow-y: auto;
       width: 100%;
-      height: 87%;
+      height: 85%;
   }
   .text-test-finish {
     display: flex;
@@ -136,13 +138,19 @@ export default {
     display: flex;
     justify-content: center;
     font-size: 1rem;
+    color: $test-result-color;
     color: var(--test-result-color, #acabab);
   }
 
   .text-your-answers {
     padding-left: 1rem;
     font-size: 1.1rem;
+    color: $test-result-color;
     color: var(--test-result-color, #acabab);
+  }
+
+  .footer {
+    height: 60px;
   }
 }
 @media screen and (max-width: 550px) {
@@ -152,7 +160,7 @@ export default {
     }
 
     .container-results {
-      height: 85%;
+      height: 80%;
     }
   }
 

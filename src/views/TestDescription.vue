@@ -27,6 +27,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$button-hover-color: #fc0404;
+$line-color: #ced6e0;
+
 .test-descriptions {
   width: 100%;
 
@@ -44,7 +47,8 @@ export default {
       bottom: 0;
       width: 100%;
       height: 1px;
-      background: var(--line, darkgray);
+      background: $line-color;
+      background: var(--line-color, darkgray);
     }
   }
 
@@ -60,10 +64,10 @@ export default {
   .buttons {
     display: flex;
     flex-flow: row wrap;
+    width: 11rem;
+    justify-content: space-between;
   }
   .button-description {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
     width: 5rem;
     text-transform: capitalize;
     padding: 0.4rem 0.7rem;
@@ -72,8 +76,13 @@ export default {
     text-decoration: none;
     color: black;
 
+    display: flex;
+    //justify-content: space-between;
+    background-color: white;
+
     &:hover {
       color: white;
+      background-color: $button-hover-color;
       background-color: var(--button-hover-color, red);
       border-color: red;
     }
