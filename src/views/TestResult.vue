@@ -45,6 +45,8 @@ export default {
   },
   data() {
     return {
+      selectedTest: {},
+      timeSpent: 0,
       numberCorrectAnswer: 0,
       textButton: 'Пройти еще раз',
       isShowModal: false,
@@ -54,33 +56,38 @@ export default {
     totalQuestions() {
      return this.selectedTest.questions.length
     },
-    selectedTest() {
-      if(this.test) {
-        return this.test
-      }
-      else {
-        return JSON.parse(sessionStorage.getItem("selected-test"))
-      }
-    },
-    timeSpent() {
-      if(this.time) {
-        return this.time
-      }
-      else {
-        return JSON.parse(sessionStorage.getItem("time-spent"))
-      }
-    }
   },
   created() {
-    this.storageData()
+    this.getTest()
+    this.getTimeSpent()
     this.countCorrectAnswer()
   },
-  methods: {
-    storageData () {
-      this.selectedTest = this.test
-      this.timeSpent = this.time
+  watch: {
+    selectedTest(){
       sessionStorage.setItem("selected-test", JSON.stringify(this.selectedTest))
+    },
+    timeSpent() {
       sessionStorage.setItem("time-spent", JSON.stringify(this.timeSpent))
+    }
+  },
+  methods: {
+    getTest() {
+      let storageTest = sessionStorage.getItem("selected-test")
+      if(this.test) {
+        this.selectedTest = this.test
+      }
+      else if (storageTest){
+        this.selectedTest = JSON.parse(storageTest)
+      }
+    },
+    getTimeSpent () {
+      let storageSpentTime = sessionStorage.getItem("time-spent")
+      if(this.time) {
+        this.timeSpent = this.time
+      }
+      else if (storageSpentTime){
+        this.timeSpent = JSON.parse(storageSpentTime)
+      }
     },
     countCorrectAnswer() {
       let i = 0;
@@ -125,7 +132,7 @@ $line-color: #ced6e0;
   .container-results {
       overflow-y: auto;
       width: 100%;
-      height: calc(100% - 114px);
+      height: calc(100vh - 116px);
   }
   .text-test-finish {
     display: flex;
@@ -153,6 +160,10 @@ $line-color: #ced6e0;
   .test-result {
     .number-correct-answer {
       margin-bottom: 0.5rem;
+    }
+
+    .container-results {
+      height: calc(100vh - 170px);
     }
   }
 }
