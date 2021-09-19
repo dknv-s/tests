@@ -62,18 +62,12 @@ $button-hover-color: #fc0404;
   }
 
   .exit-modal-container {
-    //display: flex;
-    //align-items: center;
-    //justify-content: center;
-    //width: 100%;
-    //height: 90%;
   position: fixed;
   top: 30%;
   right: 0;
   left: 0;
   width: auto;
-  //margin: 16px;
-  opacity: 100%;
+  opacity: 1;
 }
 
   .exit-modal-content {
@@ -88,11 +82,9 @@ $button-hover-color: #fc0404;
     border-radius: 5px;
     color: #000;
     background-color: #fff;
-    //transform: translate(0, 0);
-    //transition: all 0.3s ease;
     box-sizing: border-box;
     z-index: 20;
-    opacity: 100%;
+    opacity: 1;
   }
 
   .modal-header {

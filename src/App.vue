@@ -56,28 +56,18 @@ export default {
       this.menuVisible = !this.menuVisible;
     },
     closeMenu() {
-      // let nav = document.querySelector('.menu');
       slideActiveMenu.classList.toggle("menu-slide-out");
       slideHiddenMenu.classList.toggle("menu-hidden-slide-in");
       this.changeMenuVisible()
-      // document.getElementById("slideActiveMenu").style.width = "0";
-      // document.getElementById("slideHiddenMenu").style.width = "100%";
     },
     openMenu() {
       slideActiveMenu.classList.toggle("menu-slide-out");
       slideHiddenMenu.classList.toggle("menu-hidden-slide-in");
       this.changeMenuVisible()
-
-      // document.getElementById("slideActiveMenu").style.width = "100%";
-      // document.getElementById("slideHiddenMenu").style.width = "0";
     },
     goToTest(test) {
       if(test.id) {
         this.$router.push({name: 'testDescription',
-          // query: {
-          //   q: this.searchQuery,
-          //   t: new Date().getTime(),
-          // },
           params:{testId: test.id, selectedTest: test}})
 
         if(this.isMobileView)

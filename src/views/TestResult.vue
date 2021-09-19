@@ -64,7 +64,7 @@ export default {
   },
   watch: {
     selectedTest(){
-      sessionStorage.setItem("selected-test", JSON.stringify(this.selectedTest))
+      sessionStorage.setItem("test", JSON.stringify(this.selectedTest))
     },
     timeSpent() {
       sessionStorage.setItem("time-spent", JSON.stringify(this.timeSpent))
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     getTest() {
-      let storageTest = sessionStorage.getItem("selected-test")
+      let storageTest = sessionStorage.getItem("test")
       if(this.test) {
         this.selectedTest = this.test
       }

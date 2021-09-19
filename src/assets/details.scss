@@ -9,6 +9,10 @@ $line-color: #ced6e0;
   font-family: "Rubik", "Roboto", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 550;
 }
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
 
 body, html {
   height: 100%;

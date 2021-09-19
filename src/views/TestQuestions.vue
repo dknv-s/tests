@@ -56,18 +56,19 @@ export default {
 
   computed: {
     totalQuestions() {
-      return this.selectedTest.questions.length
+      return this.selectedTest?.questions?.length
     },
     numberAnswers() {
-      if(this.selectedTest.questions?.length !== 0) {
+      const length = this.selectedTest?.questions?.length
+      if(length !== 0) {
         let count = 0
-        for (let i = 0; i < this.selectedTest.questions?.length; i++) {
+        for (let i = 0; i < length; i++) {
           if (this.selectedTest.questions[i].userAnswer !== 'Не ответили') {
             count++
           }
         }
         return count
-        }
+      }
     },
     timeOutput() {
       return {
@@ -86,9 +87,11 @@ export default {
     getTest() {
       let storageTest = sessionStorage.getItem("selected-test")
       if(this.test) {
+        console.log("test")
         this.selectedTest = this.test
       }
-      else if (storageTest){
+      else if(storageTest) {
+        console.log("storageTest")
         this.selectedTest = JSON.parse(storageTest)
       }
     },
