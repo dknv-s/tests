@@ -216,7 +216,7 @@ $icons-color: #a4b0be;
     padding-left: 0.5rem;
     flex-direction: column;
     width: 100%;
-    height: 94vh;
+    height: calc(100vh - 54px);;
   }
 
   .menu-item {
@@ -271,7 +271,7 @@ $icons-color: #a4b0be;
       position: relative;
     }
     .content {
-      height: 94vh;
+      height: calc(100vh - 54px);
       margin-left: 0;
     }
   }
