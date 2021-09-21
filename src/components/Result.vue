@@ -20,8 +20,6 @@ export default {
 }
 </script>
 
-
-
 <style lang="scss">
 $line-color: #ced6e0;
 
@@ -32,7 +30,6 @@ $line-color: #ced6e0;
   padding-left: 1rem;
   border-bottom: 2px dashed $line-color;
   line-height: 2;
-
 
   .question {
     font-size: 1.1rem;

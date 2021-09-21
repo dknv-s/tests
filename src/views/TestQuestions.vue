@@ -87,11 +87,9 @@ export default {
     getTest() {
       let storageTest = sessionStorage.getItem("selected-test")
       if(this.test) {
-        console.log("test")
         this.selectedTest = this.test
       }
       else if(storageTest) {
-        console.log("storageTest")
         this.selectedTest = JSON.parse(storageTest)
       }
     },
