@@ -166,6 +166,8 @@ $border-color: #e30303;
       outline: none;
       margin-right: 0.3rem;
       position: relative;
+      cursor: pointer;
+      
       &:checked {
         border: $border-color;
         border: 2px solid var(--border-color);
