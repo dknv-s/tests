@@ -148,6 +148,7 @@ $border-color: #e30303;
       padding: 1rem 0;
     }
   }
+  
   .answers {
     background-color: $menu-color;
     background-color: var(--menu-color);
