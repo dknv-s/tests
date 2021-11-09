@@ -63,6 +63,8 @@ export default {
       if(length !== 0) {
         let count = 0
         for (let i = 0; i < length; i++) {
+          /* на уровне данных для отсутствия ответа лучше использовать null/undefined,
+          а "Не ответили" это скорее представление данных которое должно быть в шаблоне при null */
           if (this.selectedTest.questions[i].userAnswer !== 'Не ответили') {
             count++
           }
@@ -100,6 +102,13 @@ export default {
       this.isShowModal = !this.isShowModal;
     },
     countUpTimer() {
+      /* setTimeout гарантирует только минимальное время задержки,
+      реальное будет больше и будет накапливаться ошибка таймера;
+
+      следует вычислять дельту времени между "тиками" таймера и прибавлять её;
+
+      бесконечная рекурсия без условия выхода - будет медленно утекать память,
+      нужен setInterval и clearInterval для остановки */
       setTimeout(() => {
         this.time.seconds += 1
         this.countUpTimer()

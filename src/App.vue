@@ -2,6 +2,7 @@
   <div id="app">
     <div id="slideActiveMenu" class="menu">
       <div class="header-menu">
+        <!-- часть логики по изменению мобильного/десктопного вида лучше вынести в css и использовать media query -->
         <i v-show="!isMobileView" class="fas fa-arrow-left menu-icon" @click="closeMenu"></i>
         <i v-show="!isMobileView" v-if="!menuVisible" class="fas fa-bars open-icon" @click="openMenu"></i>
         <i v-show="isMobileView" v-if="!menuVisible" class="fas fa-bars menu-icon" @click="changeMenuVisible"></i>
@@ -16,6 +17,7 @@
         </ul>
       </div>
     </div>
+    <!-- id лучше не использовать, но если очень нужен прямой доступ к dom-элементу использовать ref -->
     <div id="slideHiddenMenu" class="menu-hidden">
       <i class="fas fa-bars open-icon" @click="openMenu"></i>
     </div>
@@ -49,6 +51,8 @@ export default {
   },
   created() {
     this.handleView();
+    // при добавление нативных обработчиков нужно не забывать отписываться в beforeDestroy
+    // иначе чревато утечкой памяти
     window.addEventListener('resize', this.handleView);
   },
   methods: {
@@ -56,11 +60,13 @@ export default {
       this.menuVisible = !this.menuVisible;
     },
     closeMenu() {
+      /* лучше вынести эту логику в шаблон, вместо ручного изменения dom элементов */
       slideActiveMenu.classList.toggle("menu-slide-out");
       slideHiddenMenu.classList.toggle("menu-hidden-slide-in");
       this.changeMenuVisible()
     },
     openMenu() {
+      /* то же что и в closeMenu */
       slideActiveMenu.classList.toggle("menu-slide-out");
       slideHiddenMenu.classList.toggle("menu-hidden-slide-in");
       this.changeMenuVisible()
@@ -77,6 +83,7 @@ export default {
       }
     },
     handleView() {
+      /* лучше пользоваться css media query */
       if(window.innerWidth <= 550) {
         this.isMobileView = true;
         this.menuVisible = false;
